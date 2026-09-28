@@ -7,10 +7,41 @@
         string nomeAluno = Console.ReadLine();
         return nomeAluno;
     }
+
+    static int[] lancarNotas() {
+        int[] notasAluno = new int[3];
+        int index = 0;
+        while (index < 3) {
+            Console.WriteLine((index + 1) + " - " + "Insira a nota do aluno: ");
+            string userInput = Console.ReadLine();
+            if (int.TryParse(userInput, out int userNumber))
+            {
+                if (userNumber <= 10 && userNumber >= 0)
+                {
+                    notasAluno[index] = userNumber;
+                    index++;
+                }
+                else {
+                    Console.WriteLine("Nota inválida");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Número invalido");
+                continue;
+            }
+        }
+        return notasAluno;
+    }
+    static void calcularMedia() {
+        
+    }
     static void Main(string[] args)
     {   // VARIÁVEIS
         string nomeAluno;
         bool desligarPrograma = false;
+        int[] notasAluno = new int[3];
+        double mediaAluno;
 
         // PROGRAMA PRINCIPAL
         while (!desligarPrograma) {
@@ -38,6 +69,8 @@
                     Console.WriteLine("Aluno " + nomeAluno + " adicionado!");
                     break;
                 case 2:
+                    notasAluno = lancarNotas();
+                    Console.WriteLine("Notas lançadas!");
                     break;
                 case 3:
                     break;
@@ -48,8 +81,6 @@
                 default:
                     Console.WriteLine("Comando não encontrado");
                     break;
-            
-            
             }
 
         }
