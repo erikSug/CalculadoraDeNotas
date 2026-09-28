@@ -1,17 +1,20 @@
 ﻿class Program
 {
-    static void Main()
+    // FUNÇÕES
+    static string cadastrarAluno()
     {
-        // VARIÁVEIS
+        Console.WriteLine("Digite o nome do aluno: ");
+        string nomeAluno = Console.ReadLine();
+        return nomeAluno;
+    }
+    static void Main(string[] args)
+    {   // VARIÁVEIS
         string nomeAluno;
         bool desligarPrograma = false;
-        void cadastrarAluno() {
-            Console.WriteLine("Digite o nome do aluno: ");
-            nomeAluno = Console.ReadLine();
-            Console.WriteLine("Aluno " + nomeAluno + " adicionado!");
-        }
+
         // PROGRAMA PRINCIPAL
         while (!desligarPrograma) {
+            Console.WriteLine("");
             Console.WriteLine("====Calculadora de Notas====");
             Console.WriteLine("Olá, o que gostaria de fazer: ");
             Console.WriteLine("1 - Cadastrar Aluno.");
@@ -31,7 +34,8 @@
             /// LÓGICA DE ESCOLHAS
             switch (userNumber) {
                 case 1:
-                    cadastrarAluno();
+                    nomeAluno = cadastrarAluno();
+                    Console.WriteLine("Aluno " + nomeAluno + " adicionado!");
                     break;
                 case 2:
                     break;
