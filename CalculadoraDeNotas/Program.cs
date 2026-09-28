@@ -33,15 +33,38 @@
         }
         return notasAluno;
     }
-    static void calcularMedia() {
-        
+    static double calcularMedia(int[] notasAluno) {
+        double mediaAluno = 0;
+        int totalNota = 0;
+        Console.WriteLine("Calculando a média...");
+        foreach (int nota in notasAluno) {
+            totalNota += nota;
+        }
+        mediaAluno = totalNota / notasAluno.Length;
+        return mediaAluno;
+    }
+
+    static void exibirSituacao(double mediaAluno, string nomeAluno) {
+        const double MEDIA_APROVACAO = 7.0;
+        const double MEDIA_RECUPERACAO = 5.0;
+        if (mediaAluno >= MEDIA_APROVACAO)
+        {
+            Console.WriteLine("O aluno " + nomeAluno + " foi aprovado com a média: " + mediaAluno);
+        }
+        else if (mediaAluno >= MEDIA_RECUPERACAO)
+        {
+            Console.WriteLine("O aluno " + nomeAluno + " está de recuperação com a média: " + mediaAluno);
+        }
+        else {
+            Console.WriteLine("O aluno " + nomeAluno + " está reprovado com a média: " + mediaAluno);
+        }
     }
     static void Main(string[] args)
     {   // VARIÁVEIS
-        string nomeAluno;
+        string nomeAluno = "";
         bool desligarPrograma = false;
         int[] notasAluno = new int[3];
-        double mediaAluno;
+        double mediaAluno = 0;
 
         // PROGRAMA PRINCIPAL
         while (!desligarPrograma) {
@@ -73,10 +96,13 @@
                     Console.WriteLine("Notas lançadas!");
                     break;
                 case 3:
+                    mediaAluno = calcularMedia(notasAluno);
+                    exibirSituacao(mediaAluno, nomeAluno);
                     break;
                 case 4:
-                    Console.WriteLine("Até a próxima!");
+                    Console.WriteLine("Desligando o programa...");
                     desligarPrograma = true;
+                    Console.WriteLine("Até a próxima!");
                     break;
                 default:
                     Console.WriteLine("Comando não encontrado");
