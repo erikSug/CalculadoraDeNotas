@@ -8,10 +8,11 @@
         void cadastrarAluno() {
             Console.WriteLine("Digite o nome do aluno: ");
             nomeAluno = Console.ReadLine();
+            Console.WriteLine("Aluno " + nomeAluno + " adicionado!");
         }
         // PROGRAMA PRINCIPAL
         while (!desligarPrograma) {
-            Console.WriteLine("Olá, o que gostaria de fazer: ");
+            Console.WriteLine("====Calculadora de Notas====");
             Console.WriteLine("Olá, o que gostaria de fazer: ");
             Console.WriteLine("1 - Cadastrar Aluno.");
             Console.WriteLine("2 - Lançar notas.");
@@ -24,9 +25,13 @@
             else
             {
                 Console.WriteLine("Comando não encontrado");
+                continue;
             }
+
+            /// LÓGICA DE ESCOLHAS
             switch (userNumber) {
                 case 1:
+                    cadastrarAluno();
                     break;
                 case 2:
                     break;
@@ -37,6 +42,7 @@
                     desligarPrograma = true;
                     break;
                 default:
+                    Console.WriteLine("Comando não encontrado");
                     break;
             
             
